@@ -2,9 +2,6 @@
 var tableData = data;
 
 // YOUR CODE HERE!
-
-// Level 1 
-
 // Select HTML Element to create a list
 var tbody = d3.select("tbody");
 
@@ -28,35 +25,9 @@ var inputField = d3.select("#datetime");
 button.on("click", function() {
     d3.event.preventDefault();
     var input = inputField.property("value");
-    console.log(input); 
+    // console.log(input); // Check to see if it's working
     // Create Filtered dataset based on InputValue entered by user
     var filteredUFO = tableData.filter(UFOSightings => UFOSightings.datetime === input);
-    console.log(filteredUFO);
-    //Clear all previuos data from UFO table
-    tbody.html(""); 
-    // Append new filtered data into a table
-    filteredUFO.forEach((incident) => {
-        var row = tbody.append("tr");
-        Object.entries(incident).forEach(([key, value]) => {
-            var cell = row.append("td");
-            cell.text(value);
-        });
-    });
-});
-
-// -------------------------------------------------------------------------------
-
-// Part 2
-
-var cityButton = d3.select("#city-btn");
-var cityInputField = d3.select("#cityfilter");
-
-button.on("click", function() {
-    d3.event.preventDefault();
-    var cityInput = cityInputField.property("value");
-    // console.log(input);
-    // Create Filtered dataset based on InputValue entered by user
-    var filteredCity = tableData.filter(UFOSightings => UFOSightings.city === input);
     // console.log(filteredUFO); // Check to see if it's working
     //Clear all previuos data from UFO table
     tbody.html(""); 
